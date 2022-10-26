@@ -1,0 +1,22 @@
+.theme-color{
+    color:#FFC727;
+}
+.heading-highlight:hover{
+    color:#212529;
+}
+.showcase-paragraph{
+    font-size: 17px;
+}
+.btn-custom{
+    font-size: 18px;
+    font-weight: bold;
+    background-color:#FFC727;
+    color:white;
+    border:2px solid #FFC727;
+    text-decoration: none;
+    padding:8px 15px;
+}
+.btn-custom:hover{
+    color:#FFC727;
+    background-color:white;
+}

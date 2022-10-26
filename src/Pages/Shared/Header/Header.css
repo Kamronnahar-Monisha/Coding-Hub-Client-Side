@@ -1,0 +1,16 @@
+.website-name{
+    position:relative;
+    top:10px;
+    color:#FFC727;
+}
+.light-theme-button{
+    color:#FFC727;
+    background-color: white;
+    border:2px solid #FFC727;
+    padding:2px 8px;
+}
+.dark-theme-button{
+    background-color: white;
+    border:2px solid black;
+    padding:2px 8px;
+}
