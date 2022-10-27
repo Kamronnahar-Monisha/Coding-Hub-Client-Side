@@ -2,10 +2,12 @@ import {
     createBrowserRouter,
   } from "react-router-dom";
 import Main from "../Layout/Main";
+import Blog from "../Pages/Blog/Blog";
 import Checkout from "../Pages/CheckOut/Checkout";
 import CourseDetails from "../Pages/CourseDetails/CourseDetails";
 import Courses from "../Pages/Courses/Courses/Courses";
 import Home from "../Pages/Home/Home/Home";
+import PageNotFound from "../Pages/PageNotFound/PageNotFound";
 import Login from "../Pages/Shared/Login/Login";
 import Register from "../Pages/Shared/Register/Register";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
@@ -48,6 +50,10 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
           element:<Register></Register>,
         },
         {
+          path:"/blog",
+          element:<Blog></Blog>,
+        },
+        {
           path:"/checkout/:id",
           element:<PrivateRoute><Checkout></Checkout></PrivateRoute>,
           loader:async({params})=>{
@@ -55,5 +61,9 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
           }
         },
       ]
+    },
+    {
+      path:"*",
+      element:<PageNotFound></PageNotFound>,
     },
   ]);
