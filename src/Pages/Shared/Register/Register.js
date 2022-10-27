@@ -57,7 +57,7 @@ const Register = () => {
     return (
         <div className='register my-5'>
             <div className="container">
-                <div className="row justify-content-around align-items-center">
+                <div className="row justify-content-around align-items-center gy-3 gy-lg-0">
                     <div className="col-lg-5">
                         <img className="w-100" src={registerImg} alt="sign in" />
                     </div>
@@ -91,7 +91,7 @@ const Register = () => {
                                 <button type="submit" className="btn-custom rounded form-control">Sign Up</button>
                             </form>
                             <div className='text-muted my-3 text-center'>
-                                Already have an account ? Please <Link to='/login' className='text-decoration-none theme-color fw-bold'>log IN</Link>
+                                Already have an account? Please <Link to='/login' className='text-decoration-none theme-color fw-bold'>Log In</Link>
                             </div>
                         </div>
                     </div>

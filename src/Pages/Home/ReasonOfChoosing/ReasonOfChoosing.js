@@ -13,7 +13,7 @@ const ReasonOfChoosing = () => {
                 <h1>Why you will <span className="theme-color"> choose</span> us ?</h1>
             </div>
             <div className="container">
-                <div className="row justify-content-between align-items-center my-5">
+                <div className="row justify-content-between align-items-center my-0 my-lg-5 gy-5 gy-lg-0">
                     <div className="col-lg-4">
                         <div className='rounded p-5 shadow-lg text-center'>
                             <img width="130" src={support} alt="recorded video" />

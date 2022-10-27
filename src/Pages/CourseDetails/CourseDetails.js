@@ -8,11 +8,11 @@ const CourseDetails = () => {
     return (
         <>
             <div className='course-details container'>
-                <div className="row justify-content-center align-items-center shadow-lg my-5">
+                <div className="row justify-content-center align-items-center shadow-lg my-5 mx-2 mx-lg-0">
                     <div className="col-lg-5">
                         <img className='w-100' src={course.img} alt={`logo of ${course?.name}`} />
                     </div>
-                    <div className="col-lg-7 py-4">
+                    <div className="col-lg-7 py-4 text-center text-lg-start">
                         <h3 className='theme-color'>
                             {course.name}
                             {/* <PDFDownloadLink document={<Pdf></Pdf>} fileName={`${course?.name}.pdf`}>

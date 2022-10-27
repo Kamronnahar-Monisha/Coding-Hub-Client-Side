@@ -60,7 +60,7 @@ const Header = () => {
 
                                 }
                             </li>
-                            <li className="nav-item ms-3">
+                            <li className="nav-item ms-3 mt-3 mt-md-0">
                                 {
                                     user ?
                                         <>

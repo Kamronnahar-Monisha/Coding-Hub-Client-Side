@@ -9,11 +9,11 @@ const Courses = () => {
     return (
         <div className='my-5'>
            <div className="container">
-                <div className="row justify-content-between">
-                    <div className="col-lg-4">
+                <div className="row justify-content-between gy-5 gy-lg-0">
+                    <div className="col-lg-4 order-2 order-lg-1">
                         <SideBar courses={courses}></SideBar>
                     </div>
-                    <div className="col-lg-8">
+                    <div className="col-lg-8 order-1 order-lg-2">
                         <CourseList courses={courses}></CourseList>
                     </div>
                 </div>

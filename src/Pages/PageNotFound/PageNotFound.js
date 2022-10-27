@@ -8,7 +8,7 @@ const PageNotFound = () => {
     return (
         <div className="container">
             <div className='row justify-content-center align-items-center'>
-                <div className="col-5 text-center">
+                <div className="col-lg-5 text-center">
                     <img src={pageNotFoundImg} alt="page not found" />
                     <Link className='btn-custom rounded' to='/'>
                         <FaArrowLeft className='me-2'/>

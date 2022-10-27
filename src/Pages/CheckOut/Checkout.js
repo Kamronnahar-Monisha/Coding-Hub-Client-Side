@@ -10,10 +10,10 @@ const Checkout = () => {
     }
     return (
         <div className='Checkout my-5 container'>
-            <div className="row justify-content-center align-items-center">
+            <div className="row justify-content-center align-items-center mx-3 mx-lg-0">
                 <div className='col-lg-6 p-5 custom-shadow rounded'>
                     <h4 className='theme-color text-center'>Get Your Premium Access</h4>
-                    <form onSubmit={handleCheckout} className='px-5 m-5'>
+                    <form onSubmit={handleCheckout} className='px-lg-5 m-lg-5'>
                         <h5 className='mt-5'>Enter Your Card Information</h5>
                         <div className="mb-3">
                             <label htmlFor="course-name" className="form-label text-muted">Course Name</label>

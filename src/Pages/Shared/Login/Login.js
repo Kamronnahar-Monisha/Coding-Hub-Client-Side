@@ -60,7 +60,7 @@ const Login = () => {
     return (
         <div className='log-in my-5'>
             <div className="container">
-                <div className="row justify-content-around align-items-center">
+                <div className="row justify-content-around align-items-center gy-3 gy-lg-0">
                     <div className="col-lg-5">
                         <img className="w-100" src={signInImg} alt="sign in" />
                     </div>
