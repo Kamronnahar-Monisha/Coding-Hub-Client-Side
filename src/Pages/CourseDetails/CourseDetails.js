@@ -1,8 +1,6 @@
-// import { PDFDownloadLink } from '@react-pdf/renderer';
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import './CourseDetails.css';
-// import Pdf from './Pdf';
 const CourseDetails = () => {
     const course = useLoaderData();
     return (
@@ -15,9 +13,6 @@ const CourseDetails = () => {
                     <div className="col-lg-7 py-4 text-center text-lg-start">
                         <h3 className='theme-color'>
                             {course.name}
-                            {/* <PDFDownloadLink document={<Pdf></Pdf>} fileName={`${course?.name}.pdf`}>
-                            {({ loading }) => (loading ? 'Loading document...' : <button>Download pdf</button>)}
-                            </PDFDownloadLink> */}
                         </h3>
                         <p className='pe-4'>{course.description}</p>
                         <p className='fw-bolder text-muted m-0'>Instructor : {course?.instructor}</p>
