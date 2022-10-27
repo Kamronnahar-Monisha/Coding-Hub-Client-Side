@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Login.css';
 import signInImg from '../../../images/sign-in.svg';
 import { Link } from 'react-router-dom';
@@ -7,14 +7,34 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../Context/AuthProvider';
 
 const Login = () => {
-    const {signInWithGoogle,signInWithGithub} = useContext(AuthContext);
+    const [message,setMessage] = useState(null);
+    const {signInWithGoogle,signInWithGithub,logInWithEmailAndPassword} = useContext(AuthContext);
+
+
+    const handleLogInButton =(event)=>{
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        logInWithEmailAndPassword(email,password)
+        .then((userCredential) => {
+            setMessage('Successfully logged in!');
+            form.reset();
+          })
+          .catch((error) => {
+            setMessage(error?.message);
+          });
+    }
+
+
     const handleGoogleSignIN = ()=>{
         signInWithGoogle()
            .then((result)=>{
                 console.log(result.user);
            })
            .catch((error)=>{
-                console.log(error.massage);
+                console.log(error.message);
            })
     }
 
@@ -24,7 +44,7 @@ const Login = () => {
                 console.log(result.user);
            })
            .catch((error)=>{
-                console.log(error.massage);
+                console.log(error.message);
            })
     }
 
@@ -38,18 +58,21 @@ const Login = () => {
                     <div className="col-lg-5">
                         <div className='shadow-lg rounded p-5'>
                             <h3 className='theme-color fw-bolder'>Please Sign In !!</h3>
-                            <form>
+                            <form onSubmit={handleLogInButton}>
                                 <div className="mb-3">
-                                    <label htmlFor="exampleInputEmail1" className="form-label text-muted fw-bold">Email address</label>
-                                    <input type="email" className="form-control" id="exampleInputEmail1" required />
+                                    <label htmlFor="email" className="form-label text-muted fw-bold">Email address</label>
+                                    <input type="email" name='email'  className="form-control" id="email" required />
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="exampleInputPassword1" className="form-label text-muted fw-bold">Password</label>
-                                    <input type="password" className="form-control" id="exampleInputPassword1" required />
+                                    <label htmlFor="password" className="form-label text-muted fw-bold">Password</label>
+                                    <input type="password" name="password" className="form-control" id="password" required />
                                 </div>
                                 <div className="mb-3 form-check">
-                                    <input type="checkbox" className="form-check-input" id="exampleCheck1" required />
+                                    <input type="checkbox" className="form-check-input" id="exampleCheck1" />
                                     <label className="form-check-label text-muted" htmlFor="exampleCheck1 ">Remember me</label>
+                                </div>
+                                <div className="mb-3">
+                                    <p className='text-warning'>{message}</p>
                                 </div>
                                 <button type="submit" className="btn-custom rounded form-control">Sign In</button>
                             </form>

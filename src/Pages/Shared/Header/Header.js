@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from "../../../images/logo.svg";
 import "./Header.css";
-import { FaSun, FaMoon } from 'react-icons/fa';
+import { FaSun, FaMoon, FaUserAlt } from 'react-icons/fa';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../../Context/AuthProvider';
@@ -10,16 +10,16 @@ import { AuthContext } from '../../../Context/AuthProvider';
 
 const Header = () => {
     const [theme, setTheme] = useState(false);
-    const {user,logOut} = useContext(AuthContext);
-    
-    const handleLogOut =()=>{
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
         logOut()
-        .then(()=>{})
-        .catch((error)=>{
-            console.error(error.massage);
-        })
+            .then(() => { })
+            .catch((error) => {
+                console.error(error.massage);
+            })
     }
-    
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light">
@@ -48,12 +48,12 @@ const Header = () => {
                             <li className="nav-item ms-3">
                                 {
                                     theme ?
-                                        <button className='light-theme-button rounded' onClick={()=>setTheme(!theme)}>
+                                        <button className='light-theme-button rounded' onClick={() => setTheme(!theme)}>
                                             Light
                                             <FaSun className='ms-2' />
                                         </button>
                                         :
-                                        <button className='dark-theme-button rounded' onClick={()=>setTheme(!theme)}>
+                                        <button className='dark-theme-button rounded' onClick={() => setTheme(!theme)}>
                                             Dark
                                             <FaMoon className='ms-2' />
                                         </button>
@@ -62,14 +62,19 @@ const Header = () => {
                             </li>
                             <li className="nav-item ms-3">
                                 {
-                                    user?
-                                    <>
-                                        <img width="40" height="40" src={user.photoURL} alt="user" className='rounded-circle me-3'
-                                        title={user.displayName}/>
-                                        <button className='dark-theme-button rounded' onClick={handleLogOut}>Log Out</button>
-                                    </>
-                                    :
-                                    <Link to="/login" className='dark-theme-button rounded d-inline-block text-decoration-none text-dark'>Sign In</Link>
+                                    user ?
+                                        <>
+                                            {
+                                                (user?.photoURL) ?
+                                                    <img width="40" height="40" src={user.photoURL} alt="user" className='rounded-circle me-3'
+                                                        title={user.displayName} />
+                                                    :
+                                                    <FaUserAlt className='me-3'></FaUserAlt>    
+                                            }
+                                            <button className='dark-theme-button rounded' onClick={handleLogOut}>Log Out</button>
+                                        </>
+                                        :
+                                        <Link to="/login" className='dark-theme-button rounded d-inline-block text-decoration-none text-dark'>Sign In</Link>
                                 }
                             </li>
                         </ul>
