@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css';
 import signInImg from '../../../images/sign-in.svg';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { useContext } from 'react';
 import { AuthContext } from '../../../Context/AuthProvider';
@@ -9,6 +9,10 @@ import { AuthContext } from '../../../Context/AuthProvider';
 const Login = () => {
     const [message,setMessage] = useState(null);
     const {signInWithGoogle,signInWithGithub,logInWithEmailAndPassword} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+    console.log(from);
 
 
     const handleLogInButton =(event)=>{
@@ -21,6 +25,7 @@ const Login = () => {
         .then((userCredential) => {
             setMessage('Successfully logged in!');
             form.reset();
+            navigate(from, { replace: true });
           })
           .catch((error) => {
             setMessage(error?.message);
@@ -32,6 +37,7 @@ const Login = () => {
         signInWithGoogle()
            .then((result)=>{
                 console.log(result.user);
+                navigate(from, { replace: true });
            })
            .catch((error)=>{
                 console.log(error.message);
@@ -42,6 +48,7 @@ const Login = () => {
         signInWithGithub()
            .then((result)=>{
                 console.log(result.user);
+                navigate(from, { replace: true });
            })
            .catch((error)=>{
                 console.log(error.message);

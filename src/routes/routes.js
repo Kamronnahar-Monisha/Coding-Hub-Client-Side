@@ -8,6 +8,7 @@ import Courses from "../Pages/Courses/Courses/Courses";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Shared/Login/Login";
 import Register from "../Pages/Shared/Register/Register";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 
 
@@ -48,7 +49,7 @@ import Register from "../Pages/Shared/Register/Register";
         },
         {
           path:"/checkout/:id",
-          element:<Checkout></Checkout>,
+          element:<PrivateRoute><Checkout></Checkout></PrivateRoute>,
           loader:async({params})=>{
             return fetch(`http://localhost:5000/courses/${params.id}`);
           }

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Register.css';
 import registerImg from '../../../images/register.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../../Context/AuthProvider';
 import { useState } from 'react';
@@ -9,6 +9,7 @@ import { useState } from 'react';
 const Register = () => {
    const [errorMassage,setErrorMassage] = useState({}); 
    const {createUser,createProfile} = useContext(AuthContext);
+   const navigate = useNavigate();
 
 
 
@@ -29,6 +30,7 @@ const Register = () => {
             });
             createProfileInformation(fullName,photoUrl);
             form.reset();
+            navigate('/login');
         })
         .catch((error)=>{
             setErrorMassage({
