@@ -4,7 +4,7 @@ import './CourseName.css';
 
 const CourseName = ({course}) => {
     return (
-        <Link className='text-decoration-none text-dark'>
+        <Link className='text-decoration-none text-dark' to={`/courses/${course.id}`}>
             <div className='course-name p-3 my-3 rounded fw-bold'>
                 {course.name}
             </div>

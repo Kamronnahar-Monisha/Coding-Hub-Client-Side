@@ -2,9 +2,12 @@ import {
     createBrowserRouter,
   } from "react-router-dom";
 import Main from "../Layout/Main";
+import Checkout from "../Pages/CheckOut/Checkout";
 import CourseDetails from "../Pages/CourseDetails/CourseDetails";
 import Courses from "../Pages/Courses/Courses/Courses";
 import Home from "../Pages/Home/Home/Home";
+import Login from "../Pages/Shared/Login/Login";
+import Register from "../Pages/Shared/Register/Register";
 
 
 
@@ -31,6 +34,21 @@ import Home from "../Pages/Home/Home/Home";
         {
           path:"/courses/:id",
           element:<CourseDetails></CourseDetails>,
+          loader:async({params})=>{
+            return fetch(`http://localhost:5000/courses/${params.id}`);
+          }
+        },
+        {
+          path:"/login",
+          element:<Login></Login>
+        },
+        {
+          path:"/register",
+          element:<Register></Register>,
+        },
+        {
+          path:"/checkout/:id",
+          element:<Checkout></Checkout>,
           loader:async({params})=>{
             return fetch(`http://localhost:5000/courses/${params.id}`);
           }

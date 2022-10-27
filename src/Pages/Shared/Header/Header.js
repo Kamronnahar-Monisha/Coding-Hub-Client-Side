@@ -4,10 +4,22 @@ import logo from "../../../images/logo.svg";
 import "./Header.css";
 import { FaSun, FaMoon } from 'react-icons/fa';
 import { useState } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../../../Context/AuthProvider';
 
 
 const Header = () => {
     const [theme, setTheme] = useState(false);
+    const {user,logOut} = useContext(AuthContext);
+    
+    const handleLogOut =()=>{
+        logOut()
+        .then(()=>{})
+        .catch((error)=>{
+            console.error(error.massage);
+        })
+    }
+    
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light">
@@ -49,7 +61,16 @@ const Header = () => {
                                 }
                             </li>
                             <li className="nav-item ms-3">
-                                <button>logout/pic</button>
+                                {
+                                    user?
+                                    <>
+                                        <img width="40" height="40" src={user.photoURL} alt="user" className='rounded-circle me-3'
+                                        title={user.displayName}/>
+                                        <button className='dark-theme-button rounded' onClick={handleLogOut}>Log Out</button>
+                                    </>
+                                    :
+                                    <Link to="/login" className='dark-theme-button rounded d-inline-block text-decoration-none text-dark'>Sign In</Link>
+                                }
                             </li>
                         </ul>
                     </div>
