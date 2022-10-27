@@ -32,14 +32,14 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
           path:"/courses",
           element:<Courses></Courses>,
           loader:()=>{
-            return fetch('http://localhost:5000/courses');
+            return fetch('https://coding-hub-server-five.vercel.app/courses');
           }
         },
         {
           path:"/courses/:id",
           element:<CourseDetails></CourseDetails>,
           loader:async({params})=>{
-            return fetch(`http://localhost:5000/courses/${params.id}`);
+            return fetch(`https://coding-hub-server-five.vercel.app/courses/${params.id}`);
           }
         },
         {
@@ -62,7 +62,7 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
           path:"/checkout/:id",
           element:<PrivateRoute><Checkout></Checkout></PrivateRoute>,
           loader:async({params})=>{
-            return fetch(`http://localhost:5000/courses/${params.id}`);
+            return fetch(`https://coding-hub-server-five.vercel.app/courses/${params.id}`);
           }
         },
       ]
