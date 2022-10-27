@@ -6,6 +6,7 @@ import Blog from "../Pages/Blog/Blog";
 import Checkout from "../Pages/CheckOut/Checkout";
 import CourseDetails from "../Pages/CourseDetails/CourseDetails";
 import Courses from "../Pages/Courses/Courses/Courses";
+import FAQ from "../Pages/FAQ/FAQ";
 import Home from "../Pages/Home/Home/Home";
 import PageNotFound from "../Pages/PageNotFound/PageNotFound";
 import Login from "../Pages/Shared/Login/Login";
@@ -52,6 +53,10 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
         {
           path:"/blog",
           element:<Blog></Blog>,
+        },
+        {
+          path:"/faq",
+          element:<FAQ></FAQ>,
         },
         {
           path:"/checkout/:id",
